@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
         ),
         bottomNavigationBar: const Text(
           "End of the app",
+          textAlign: TextAlign.center,
         ));
   }
 }
