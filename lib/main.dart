@@ -2,13 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   //runApp(const MaterialApp(home: Text("Hello")));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // add();
@@ -18,8 +21,12 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       themeMode: ThemeMode.dark,
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          fontFamily: GoogleFonts.lato().fontFamily),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: GoogleFonts.lato().fontFamily),
       initialRoute: "/home",
       routes: {
         "/": (context) => LoginPage(),
