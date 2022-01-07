@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/utils/routes.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 
 void main() {
   //runApp(const MaterialApp(home: Text("Hello")));
@@ -21,13 +21,9 @@ class MyApp extends StatelessWidget {
     // sub(bag: true, b: 25); --> // Now it is compulsory to pass the argument here
 
     return MaterialApp(
-      themeMode: ThemeMode.dark,
-      theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          fontFamily: GoogleFonts.lato().fontFamily),
-      darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: GoogleFonts.lato().fontFamily),
+      themeMode: ThemeMode.light,
+      theme: MyTheme.whiteBlackTheme,
+      darkTheme: MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.homeRoute,
       routes: {
