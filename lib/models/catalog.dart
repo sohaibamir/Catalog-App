@@ -1,5 +1,18 @@
+class CatalogModel {
+  static final items = [
+    Item(
+        id: 1,
+        name: "IPhone 13 Pro",
+        desc: "Apple Iphone 13th generation",
+        price: 1200,
+        color: "#33505a",
+        image:
+            "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-max-01.jpg")
+  ];
+}
+
 class Item {
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -14,14 +27,3 @@ class Item {
       required this.color,
       required this.image});
 }
-
-final products = [
-  Item(
-      id: "sohaib001",
-      name: "IPhone 13 Pro",
-      desc: "Apple Iphone 13th generation",
-      price: 240000,
-      color: "#33505a",
-      image:
-          "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-max-01.jpg")
-];
