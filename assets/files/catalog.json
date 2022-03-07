@@ -1,0 +1,52 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "IPhone 13 Pro",
+            "desc": "Apple Iphone 13th generation",
+            "price": 1200,
+            "color": "#33505a",
+            "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-max-01.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Pixel 6",
+            "desc": "Google Pixel 6th generation",
+            "price": 900,
+            "color": "#00ac51",
+            "image": "https://fdn.gsmarena.com/imgroot/news/21/10/google-pixel-6-6-pro-official/-1200x900m/gsmarena_007.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Chrome Book",
+            "desc": "Google Chrome Book",
+            "price": 1500,
+            "color": "#e0bfae",
+            "image": "https://www.google.com/chromebook/assets-2019/static/images/home/chromeos.jpg"
+        },
+        {
+            "id": 4,
+            "name": "PlayStation 5",
+            "desc": "Sony PlayStation 5th generation",
+            "price": 600,
+            "color": "#544ee4",
+            "image": "https://images.immediate.co.uk/production/volatile/sites/3/2020/08/playstation-5-77d37a0.jpg?quality=90&resize=620,413g"
+        },
+        {
+            "id": 5,
+            "name": "Galaxy S22 Ultra",
+            "desc": "Samsung Galaxy S22 Ultra",
+            "price": 1299,
+            "color": "#1c1c1c",
+            "image": "https://images.samsung.com/levant/smartphones/galaxy-s22-ultra/models/images/galaxy-s22-plus_models_colors_phantom-white.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Mate 40 Pro",
+            "desc": "Huawei Mate 40 Pro",
+            "price": 1149,
+            "color": "#7c95eb",
+            "image": "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate40-pro/list-img/silver.png"
+        }
+    ]
+}
