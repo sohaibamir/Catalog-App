@@ -6,7 +6,7 @@
             "desc": "Apple Iphone 13th generation",
             "price": 1200,
             "color": "#33505a",
-            "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-pro-max-01.jpg"
+            "image": "https://cdn.shopify.com/s/files/1/0586/6920/3620/products/iphone-13-pro-blue-select_a0c2135c-aaa7-49bf-b29d-19d900e62408_530x@2x.png?v=1632482731"
         },
         {
             "id": 2,
@@ -14,15 +14,15 @@
             "desc": "Google Pixel 6th generation",
             "price": 900,
             "color": "#00ac51",
-            "image": "https://fdn.gsmarena.com/imgroot/news/21/10/google-pixel-6-6-pro-official/-1200x900m/gsmarena_007.jpg"
+            "image": "https://freebiescloud.com/wp-content/uploads/2021/12/Google-Pixel-6-Pro-3.png"
         },
         {
             "id": 3,
-            "name": "Chrome Book",
-            "desc": "Google Chrome Book",
+            "name": "Chromebook 2",
+            "desc": "Samsung Galaxy Chromebook 2",
             "price": 1500,
             "color": "#e0bfae",
-            "image": "https://www.google.com/chromebook/assets-2019/static/images/home/chromeos.jpg"
+            "image": "https://www.nicepng.com/png/full/364-3643319_samsung-outs-new-chromebook-pro-premium-laptop-samsung.png"
         },
         {
             "id": 4,
@@ -38,7 +38,7 @@
             "desc": "Samsung Galaxy S22 Ultra",
             "price": 1299,
             "color": "#1c1c1c",
-            "image": "https://images.samsung.com/levant/smartphones/galaxy-s22-ultra/models/images/galaxy-s22-plus_models_colors_phantom-white.jpg"
+            "image": "https://fscl01.fonpit.de/devices/24/2224-w320h320.png"
         },
         {
             "id": 6,
