@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
     // sub(bag: true, b: 25); --> // Now it is compulsory to pass the argument here
 
     return MaterialApp(
-      themeMode: ThemeMode.light,
-      theme: MyTheme.whiteBlackTheme,
+      themeMode: ThemeMode.system,
+      theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
