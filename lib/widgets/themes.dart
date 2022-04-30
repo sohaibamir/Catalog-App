@@ -9,6 +9,7 @@ class MyTheme {
       canvasColor: creamColor,
       // ignore: deprecated_member_use
       buttonColor: darkBluishColor,
+
       // ignore: deprecated_member_use
       accentColor: darkBluishColor,
       primaryColor: Colors.black,
@@ -30,13 +31,13 @@ class MyTheme {
       // ignore: deprecated_member_use
       accentColor: Colors.white,
       primaryColor: Colors.white,
-      shadowColor: Colors.grey[200],
+      shadowColor: Colors.grey[300],
       appBarTheme: AppBarTheme(
         centerTitle: true,
         color: Colors.black,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.white),
-        titleTextStyle: GoogleFonts.poppins(fontSize: 20, color: Colors.black),
+        titleTextStyle: GoogleFonts.poppins(fontSize: 20, color: Colors.white),
       ),
       fontFamily: GoogleFonts.poppins().fontFamily);
 
@@ -45,4 +46,5 @@ class MyTheme {
   static Color darkCreamColor = Vx.gray900;
   static Color darkBluishColor = const Color(0xff403b58);
   static Color lightBluishColor = Vx.indigo400;
+  static Color royalBlue = const Color(0xff002e7c);
 }

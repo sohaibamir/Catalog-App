@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: context.theme.canvasColor,
+      color: context.canvasColor,
       child: SingleChildScrollView(
           child: Form(
         key: _formKey,
@@ -37,10 +38,10 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             // ignore: prefer_const_constructors
             SizedBox(
-              height: 30.0,
+              height: 50.0,
             ),
             Image.asset(
-              "assets/images/random.jpg",
+              "assets/images/wof.png",
               fit: BoxFit.cover,
               height: 200,
             ),
@@ -51,10 +52,10 @@ class _LoginPageState extends State<LoginPage> {
             // ignore: prefer_const_constructors
             Text(
               "Welcome $name",
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: context.theme.primaryColor,
               ),
             ),
             // ignore: prefer_const_constructors
@@ -67,8 +68,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                        cursorColor: Colors.black,
-                        style: const TextStyle(color: Colors.black),
+                        cursorColor: context.theme.primaryColor,
+                        style: TextStyle(color: context.theme.primaryColor),
                         onChanged: (value) {
                           name = value;
                           setState(() {});
@@ -78,22 +79,25 @@ class _LoginPageState extends State<LoginPage> {
                             return "Username cannot be empty";
                           }
                         },
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black45)),
+                                borderSide: BorderSide(
+                                    color: context.theme.primaryColor)),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(
+                                    color: context.theme.primaryColor)),
                             hintText: "Enter username",
                             labelText: "Username",
                             hintStyle: TextStyle(
-                                color: Colors.red, fontWeight: FontWeight.w200),
+                                color: context.theme.primaryColor,
+                                fontWeight: FontWeight.w200),
                             labelStyle: TextStyle(
-                                color: Colors.black,
+                                color: context.theme.shadowColor,
                                 fontWeight: FontWeight.bold))),
                     TextFormField(
                         obscureText: true,
-                        cursorColor: Colors.black,
-                        style: const TextStyle(color: Colors.black),
+                        cursorColor: context.theme.primaryColor,
+                        style: TextStyle(color: context.theme.primaryColor),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Password cannot be empty";
@@ -101,17 +105,20 @@ class _LoginPageState extends State<LoginPage> {
                             return "Password length should be atleast 6 characters";
                           }
                         },
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black45)),
+                                borderSide: BorderSide(
+                                    color: context.theme.shadowColor)),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black)),
+                                borderSide: BorderSide(
+                                    color: context.theme.primaryColor)),
                             hintText: "Enter password",
                             labelText: "Password",
                             hintStyle: TextStyle(
-                                color: Colors.red, fontWeight: FontWeight.w200),
+                                color: context.theme.primaryColor,
+                                fontWeight: FontWeight.w200),
                             labelStyle: TextStyle(
-                                color: Colors.black,
+                                color: context.theme.shadowColor,
                                 fontWeight: FontWeight.bold))),
                     // ignore: prefer_const_constructors
                     SizedBox(
@@ -119,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     Material(
-                      color: Colors.grey.shade400,
+                      color: MyTheme.royalBlue,
                       borderRadius:
                           BorderRadius.circular(changedButton ? 50 : 8),
                       child: InkWell(
@@ -133,12 +140,12 @@ class _LoginPageState extends State<LoginPage> {
                           child: changedButton
                               ? const Icon(
                                   Icons.done,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 )
                               : const Text(
                                   "Login",
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18),
                                 ),
