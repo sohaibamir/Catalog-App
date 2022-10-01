@@ -3,6 +3,8 @@ import 'package:flutter_application_1/models/cart.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../core/store.dart';
+
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-  final _cart = CartModel();
+  final CartModel _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,11 +30,16 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}"
-              .text
-              .xl5
-              .color(context.theme.accentColor)
-              .make(),
+          VxBuilder(
+            mutations: const {RemoveMutation},
+            builder: (_, context, __) {
+              return "\$${_cart.totalPrice}"
+                  .text
+                  .xl5
+                  .color(MyTheme.darkBluishColor)
+                  .make();
+            },
+          ),
           30.widthBox,
           TextButton(
                   onPressed: () {
@@ -50,28 +57,27 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
-  final _cart = CartModel();
+class _CartList extends StatelessWidget {
+  final CartModel _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: const Icon(Icons.done).iconColor(context.theme.primaryColor),
-        trailing: IconButton(
-          icon: const Icon(Icons.remove_circle_outline)
-              .iconColor(context.theme.primaryColor),
-          onPressed: () {},
-        ),
-        title: _cart.items[index].name.text
-            .color(context.theme.primaryColor)
-            .make(),
-      ),
-    );
+    VxState.watch(context, on: [RemoveMutation]);
+    return _cart.items.isEmpty
+        ? "Nothing to show".text.xl3.make().centered()
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+              leading:
+                  const Icon(Icons.done).iconColor(context.theme.primaryColor),
+              trailing: IconButton(
+                icon: const Icon(Icons.remove_circle_outline)
+                    .iconColor(context.theme.primaryColor),
+                onPressed: () => RemoveMutation(_cart.items[index]),
+              ),
+              title: _cart.items[index].name.text
+                  .color(context.theme.primaryColor)
+                  .make(),
+            ),
+          );
   }
 }

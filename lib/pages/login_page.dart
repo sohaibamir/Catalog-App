@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
@@ -10,6 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
+  String password = "";
   bool changedButton = false;
   final _formKey = GlobalKey<FormState>();
 
@@ -24,6 +26,23 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         changedButton = false;
       });
+    }
+  }
+
+  moveToSignup(BuildContext context) {
+    Navigator.pushNamed(context, MyRoutes.signUpRoute);
+  }
+
+  Future verifyUser({required String name, required String password}) async {
+    var collection = FirebaseFirestore.instance.collection('users');
+    var querySnapshot = await collection.get();
+    for (var queryDocumentSnapshot in querySnapshot.docs) {
+      Map<String, dynamic> data = queryDocumentSnapshot.data();
+      var naame = data['name'];
+      var paassword = data['password'];
+      if (name == naame && password == paassword) {
+        moveToHome(context);
+      }
     }
   }
 
@@ -98,6 +117,10 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         cursorColor: context.theme.primaryColor,
                         style: TextStyle(color: context.theme.primaryColor),
+                        onChanged: (value) {
+                          password = value;
+                          setState(() {});
+                        },
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Password cannot be empty";
@@ -130,8 +153,12 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius:
                           BorderRadius.circular(changedButton ? 50 : 8),
                       child: InkWell(
+                        borderRadius: BorderRadius.circular(8),
                         splashColor: Colors.lightBlueAccent,
-                        onTap: () => moveToHome(context),
+                        onTap: () => {
+                          if (_formKey.currentState!.validate())
+                            {verifyUser(name: name, password: password)},
+                        },
                         child: AnimatedContainer(
                           width: changedButton ? 50 : 140,
                           height: 50,
@@ -151,6 +178,26 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 40.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account? ",
+                          style: TextStyle(color: context.theme.primaryColor),
+                        ),
+                        const Padding(padding: EdgeInsets.only(left: 2.0)),
+                        InkWell(
+                          onTap: () => {moveToSignup(context)},
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: MyTheme.royalBlue),
+                          ),
+                        )
+                      ],
                     )
                   ],
                 )),

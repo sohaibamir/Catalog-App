@@ -1,14 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/store.dart';
 import 'package:flutter_application_1/pages/cart_page.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:flutter_application_1/pages/signup_page.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:velocity_x/velocity_x.dart';
 
-void main() {
-  //runApp(const MaterialApp(home: Text("Hello")));
-  runApp(const MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(VxState(store: MyStore(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,11 +21,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // add();
-    // add(a: 40);
-    // add(a: 20, b: 40);
-    // sub(bag: true, b: 25); --> // Now it is compulsory to pass the argument here
-
     return MaterialApp(
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme,
@@ -31,11 +31,9 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.signUpRoute: (context) => SignupPage(),
         MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }
-
-  // add({int a = 0, int b = 0}) {}
-  // sub({required bool bag, int b = 0}) {}
 }
